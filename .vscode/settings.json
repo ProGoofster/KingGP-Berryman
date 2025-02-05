@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "KingGP-Berryman.sln"
+    "dotnet.defaultSolution": "KingGP-Berryman.sln",
+    "C_Cpp.default.compilerPath": "C:\\msys64\\ucrt64\\bin\\gcc.exe"
 }
