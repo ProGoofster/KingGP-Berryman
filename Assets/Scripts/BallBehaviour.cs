@@ -1,6 +1,8 @@
 using UnityEngine;
 
 public class BallBehaviour : MonoBehaviour{
+    Rigidbody2D body;
+    public bool rerouting;
 
     public float minX = -8.048f;
     public float minY = -4.16f;
@@ -23,14 +25,12 @@ public class BallBehaviour : MonoBehaviour{
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
-        //secondsToMaxSpeed = 30;
-        //minSpeed = 0.001f;
-        //maxSpeed = 2.0f;
+        body = GetComponent<Rigidbody2D>();
         targetPosition = getRandomPosition();
     }
 
     // Update is called once per frame
-    void Update(){
+    void FixedUpdate(){
         if(onCooldown() == false) {
             if (launching == true) {
                 float currentLaunchTime = Time.time - timeLaunchStart;
@@ -42,7 +42,8 @@ public class BallBehaviour : MonoBehaviour{
                 launch();
             }
         }
-        Vector2 currentPos = gameObject.GetComponent<Transform>().position;
+        body = GetComponent<Rigidbody2D>();
+        Vector2 currentPos = body.position;
         float distance = Vector2.Distance(currentPos, targetPosition);
         if(distance > 0.1) {
             float difficulty = getDifficultyPercentage();
@@ -58,7 +59,7 @@ public class BallBehaviour : MonoBehaviour{
             }
             currentSpeed = currentSpeed * Time.deltaTime;
             Vector2 newPosition = Vector2.MoveTowards(currentPos, targetPosition, currentSpeed);
-            transform.position = newPosition;
+            body.MovePosition(newPosition);
         } else { // You are at target
             if(launching == true) {
                 startCooldown();
@@ -67,6 +68,12 @@ public class BallBehaviour : MonoBehaviour{
         }
         
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision){
+        Debug.Log(this.gameObject.name + " Collided with: " + collision.gameObject.name);
+
+        if(collision.gameObject.tag == "Wall") targetPosition = getRandomPosition();
     }
 
     Vector2 getRandomPosition() {
@@ -82,7 +89,8 @@ public class BallBehaviour : MonoBehaviour{
     }
 
     public void launch() {
-        targetPosition = target.transform.position;
+        Rigidbody2D targetBody = target.GetComponent<Rigidbody2D>();
+        targetPosition = targetBody.position;
         if (launching == false) {
             timeLaunchStart = Time.time;
             launching = true;

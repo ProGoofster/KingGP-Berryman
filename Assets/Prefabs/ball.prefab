@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2135656988728384832}
   - component: {fileID: 5849754035598543706}
-  - component: {fileID: 7639513917168309466}
   - component: {fileID: 324007580350046656}
   - component: {fileID: 5622746962199187385}
+  - component: {fileID: 5032588619704613964}
   m_Layer: 0
   m_Name: ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,34 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7639513917168309466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8380433863613237149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 488eedb49bcd00442bab66b3e4c2bc55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minX: -10.0856
-  minY: 4.6807
-  maxX: 10.0856
-  maxY: -4.6807
-  minSpeed: 0.5
-  maxSpeed: 25
-  targetPosition: {x: 0, y: 0}
-  target: {fileID: 2760784712906732536, guid: 8f1b0ba1889fa564fa8c7f58c6f80fa0, type: 3}
-  launching: 0
-  timeLastLaunch: 0
-  launchDuration: 5
-  timeLaunchStart: 0
-  minLaunchSpeed: 10
-  maxLaunchSpeed: 20
-  cooldown: 5
-  secondsToMaxSpeed: 60
 --- !u!50 &324007580350046656
 Rigidbody2D:
   serializedVersion: 5
@@ -126,7 +98,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8380433863613237149}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -143,7 +115,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!60 &5622746962199187385
 PolygonCollider2D:
@@ -288,3 +260,32 @@ PolygonCollider2D:
       - {x: 0.45499998, y: -3.175}
       - {x: 0.575, y: -3.155}
   m_UseDelaunayMesh: 0
+--- !u!114 &5032588619704613964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8380433863613237149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488eedb49bcd00442bab66b3e4c2bc55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rerouting: 0
+  minX: -8.048
+  minY: -4.16
+  maxX: 7.8
+  maxY: 4.34
+  minSpeed: 1
+  maxSpeed: 20
+  targetPosition: {x: 0, y: 0}
+  target: {fileID: 2760784712906732536, guid: 8f1b0ba1889fa564fa8c7f58c6f80fa0, type: 3}
+  launching: 0
+  timeLastLaunch: 0
+  launchDuration: 5
+  timeLaunchStart: 5
+  minLaunchSpeed: 2
+  maxLaunchSpeed: 10
+  cooldown: 5
+  secondsToMaxSpeed: 5
