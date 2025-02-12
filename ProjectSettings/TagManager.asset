@@ -45,5 +45,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Collider
+    uniqueID: 4278879625
+    locked: 0
+  - name: Background
+    uniqueID: 2277441267
+    locked: 0
+  - name: Balls
+    uniqueID: 2745450107
+    locked: 0
+  - name: PIn
+    uniqueID: 2877340767
+    locked: 0
   m_RenderingLayers:
   - Default

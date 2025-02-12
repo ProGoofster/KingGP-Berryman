@@ -38,7 +38,7 @@ public class PinBehaviour : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         string collided = collision.gameObject.tag;
         
-        if(collided == "Ball" || collided == "Wall") Debug.Log("Game Over");
+        if(collided == "Ball" || collided == "Wall") UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
     }
 
     private void CheckDash(){

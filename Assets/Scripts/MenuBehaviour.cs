@@ -2,19 +2,15 @@ using UnityEngine;
 
 public class MenuBehaviour : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void gotoGame() {
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainGame");
+    }
+
+    public void goToMainMenu(){
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+    }
+
+    public void goToCharacterSelect(){
+        UnityEngine.SceneManagement.SceneManager.LoadScene("CharacterSelect");
     }
 }
