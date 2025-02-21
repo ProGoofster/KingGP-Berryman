@@ -8,6 +8,10 @@ public class PlayerSelectionBehaviour : MonoBehaviour
     public static int selection = 0;
     public SpriteRenderer sprite;
     public TMP_Text nameLabel;
+
+    private void Start(){
+        UpdateCharacter();
+    }
     
     void UpdateCharacter() {
         Pin current = pinsDB.getPin(selection);
@@ -19,6 +23,8 @@ public class PlayerSelectionBehaviour : MonoBehaviour
         int numberPins = pinsDB.getCount();
         if (selection < numberPins-1) {
             selection = selection + 1;
+        } else {
+            selection = 0;
         }
         UpdateCharacter();
     }
@@ -26,6 +32,8 @@ public class PlayerSelectionBehaviour : MonoBehaviour
     public void previous(){
         if(selection > 0){
             selection = selection - 1;
+        } else {
+            selection = pinsDB.getCount() - 1;
         }
         UpdateCharacter();
     }
