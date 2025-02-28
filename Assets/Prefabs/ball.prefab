@@ -278,7 +278,7 @@ MonoBehaviour:
   maxX: 7.8
   maxY: 4.34
   minSpeed: 1
-  maxSpeed: 20
+  maxSpeed: 5
   targetPosition: {x: 0, y: 0}
   target: {fileID: 2760784712906732536, guid: 8f1b0ba1889fa564fa8c7f58c6f80fa0, type: 3}
   launching: 0
