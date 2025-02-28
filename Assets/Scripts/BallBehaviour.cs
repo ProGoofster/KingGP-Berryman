@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class BallBehaviour : MonoBehaviour{
     Rigidbody2D body;
@@ -25,8 +26,9 @@ public class BallBehaviour : MonoBehaviour{
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
+        initialPosition();
+
         body = GetComponent<Rigidbody2D>();
-        targetPosition = getRandomPosition();
     }
 
     // Update is called once per frame
@@ -111,6 +113,23 @@ public class BallBehaviour : MonoBehaviour{
     public void startCooldown() {
         timeLastLaunch = Time.time;
         launching = false;
+    }
+
+    public void setBounds(float miX, float maX, float miY, float maY){
+        minX = miX;
+        maxX = maX;
+        minY = miY;
+        maxY = maY;
+    }
+
+    public void initialPosition() {
+        transform.position = getRandomPosition();
+        targetPosition = getRandomPosition();
+        launching = false;
+    }
+
+    public void setTarget(GameObject pin) {
+        target = pin;
     }
 
 }
