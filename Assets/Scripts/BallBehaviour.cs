@@ -86,8 +86,7 @@ public class BallBehaviour : MonoBehaviour{
     }
 
     public float getDifficultyPercentage() {
-        float difficulty= Mathf.Clamp01(Time.timeSinceLevelLoad / secondsToMaxSpeed);
-        return difficulty;
+        return Mathf.Clamp01(Time.timeSinceLevelLoad / secondsToMaxSpeed);
     }
 
     public void launch() {

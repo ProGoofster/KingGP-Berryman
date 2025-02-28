@@ -8,9 +8,11 @@ public class PlayerSelectionBehaviour : MonoBehaviour
     public static int selection = 0;
     public SpriteRenderer sprite;
     public TMP_Text nameLabel;
+    private AudioSource audioSource;
 
     private void Start(){
         UpdateCharacter();
+        audioSource = GetComponentInChildren<AudioSource>();
     }
     
     void UpdateCharacter() {
@@ -27,6 +29,7 @@ public class PlayerSelectionBehaviour : MonoBehaviour
             selection = 0;
         }
         UpdateCharacter();
+        audioSource.Play();
     }
 
     public void previous(){
@@ -36,5 +39,6 @@ public class PlayerSelectionBehaviour : MonoBehaviour
             selection = pinsDB.getCount() - 1;
         }
         UpdateCharacter();
+        audioSource.Play();
     }
 }
